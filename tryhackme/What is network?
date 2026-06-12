@@ -1,0 +1,77 @@
+## Conceitos (já conhecias na prática, agora com termos formais)
+
+### Rede (Network)
+Dispositivos ligados entre si — desde 2 dispositivos até milhões.
+Exemplo: a Internet é uma rede gigante feita de muitas redes pequenas.
+
+### Tipos de rede
+- Private network → rede privada (ex: a tua rede doméstica)
+- Public network → rede pública (a Internet em si)
+
+### Identificação de dispositivos: 2 formas
+
+1. IP Address (endereço IP) — "o nome", pode mudar
+   - Private IP → identifica o dispositivo dentro da rede local
+     (ex: 192.168.1.77 — já usaste isto no Packet Tracer)
+   - Public IP → identifica a rede inteira na Internet
+     (atribuído pelo ISP, é o mesmo para todos os dispositivos
+     da tua casa)
+
+2. MAC Address — "as impressões digitais", não muda (em teoria)
+   - Número de 12 caracteres hexadecimal, atribuído de fábrica
+     ao chip de rede (ex: a4:c3:f0:85:ac:2d)
+   - Primeiros 6 caracteres = fabricante
+   - Últimos 6 = número único do dispositivo
+
+### IPv4 vs IPv6
+- IPv4 → 2^32 endereços (~4.3 mil milhões) — está a esgotar-se
+- IPv6 → 2^128 endereços — resolve o problema de escassez
+  (já tens isto no teu roadmap de skills)
+
+### MAC Spoofing
+Fingir o MAC address de outro dispositivo para enganar 
+sistemas de segurança mal configurados.
+
+Exemplo prático da lab: numa rede Wi-Fi de hotel, se o router
+só deixa passar tráfego do MAC do Alice (que pagou), o Bob
+(que não pagou) pode copiar o MAC do Alice para "passar por ele"
+e ter acesso grátis.
+
+## Ligação ao que já sabes
+Tudo isto já usaste no Packet Tracer:
+IP privado/público, IPv4/IPv6, subnetting → agora tens
+o vocabulário inglês formal para isso.
+
+# Ping (Pre-Security)
+
+## O que aprendi
+Ping é uma ferramenta básica para testar se uma ligação entre
+dois dispositivos existe e está estável.
+
+## Como funciona
+Usa pacotes ICMP (Internet Control Message Protocol):
+- Envia um "echo request" para o destino
+- O destino responde com "echo reply"
+- Ping mede o tempo (em ms) que essa troca demora
+
+## Sintaxe
+ping <IP ou URL>
+
+Exemplo:
+ping 8.8.8.8        → testar ligação ao DNS público da Google
+ping 192.168.1.254  → testar ligação a um dispositivo na rede local
+
+## Resultado típico
+- Nº de pacotes enviados / recebidos
+- Tempo médio de resposta (ex: 4.16 ms)
+- Se não houver resposta → ligação inexistente ou bloqueada
+
+## Uso prático
+Primeiro comando a correr quando "a internet não funciona":
+- Ping ao router (IP local) → testa a rede local
+- Ping a 8.8.8.8 → testa a ligação à Internet
+- Ping a um site (ex: google.com) → testa DNS
+
+## Para rever
+- Diferença entre ICMP bloqueado (firewall) e ligação 
+  realmente inexistente
